@@ -5,14 +5,14 @@ import feedbackContext from './components/context/feedbackContext'
 
 function FeedbackList () {
 
-    const {feedback} = useContext(feedbackContext)
+    const { feedback, isLoading } = useContext(feedbackContext)
     
-    if (!feedback || feedback.length ===0){
-        return <p>No feedback</p>
+    if (!isLoading && (!feedback || feedback.length === 0)) {
+      return <p>No Feedback Yet</p>
     }
   return (
     <div className='feedback-list'>
-            {feedback.map((item) => (
+              {feedback.map((item) => (
                 <FeedbackItem key={item.id} 
                 item={item}
                  />
