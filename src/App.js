@@ -12,16 +12,17 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 function App() {
   
   return (
-    <feedbackprovider>    
+    <feedbackprovider>  
     <Router> 
     <Header />
      <div className="container">
        <Routes> 
-       <Route exact path='/' element= {
+       <Route  path='/' element= {
           <>
-            <Feedbackform/>
             <FeedbackStats  />
+            <Feedbackform />
             <FeedbackList />
+    
          </>
        }       
        ></Route>

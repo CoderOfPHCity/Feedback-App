@@ -4,11 +4,11 @@ import feedbackContext from './context/feedbackContext'
 
 function FeedbackStats() {
 
-  const {feedback} = useContext(feedbackContext)
+    const { feedback } = useContext(feedbackContext);
 
-    let average = feedback.reduce((acc, cur) => {
-        return acc + cur.rating
-    }, 0) / feedback.length
+    let average = Math.round(
+      feedback.reduce((acc, { rating }) => acc + rating, 0) / feedback.length
+    )
 
 
   return (

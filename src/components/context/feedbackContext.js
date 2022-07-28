@@ -1,15 +1,13 @@
-import { createContext, useState } from "react";
-import React from "react";
-import { v4 as uuidv4 } from 'uuid'
-const feedbackContext = createContext()
+import React, {createContext, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
+ export const feedbackContext = createContext({children:()=>{}});
 
 export const feedbackprovider = ({children}) =>{
     const [isLoading, setIsLoading] = useState(true)
-    const [feedback, setfeedback] = useState([{
-        id: 1,
-        text: 'this is the context data',
-        rating: 9,
-    }])
+    const [feedback, setfeedback] = useState({
+        item: {},
+        edit: false,
+      })
 
     const handleDel = (id) => {
 
@@ -36,6 +34,7 @@ export const feedbackprovider = ({children}) =>{
       const addFeed = (newFeedback) => {
         newFeedback.id = uuidv4()
         setfeedback([newFeedback, ...feedback])
+        setIsLoading(false)
     
     
       } 
@@ -47,9 +46,7 @@ export const feedbackprovider = ({children}) =>{
       }
 
 
-    return(
-
-        <feedbackContext.Provider value={{
+      const value = {
             feedback,
             handleDel,
             addFeed,
@@ -57,13 +54,11 @@ export const feedbackprovider = ({children}) =>{
             upDatefeed,
             isLoading, 
             feedEdit
-        }}>
-        {children}
+      };
 
-
-
-        </feedbackContext.Provider>
-    )
+    return(
+        <feedbackContext.Provider value={value}>{children}</feedbackContext.Provider>
+    );
 
 }
 export default feedbackContext

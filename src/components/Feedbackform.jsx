@@ -1,18 +1,19 @@
-import React from 'react'
-import Card from './Card'
-import { useState, useContext, useEffect } from 'react'
-import Button from './Button'
+
 import feedbackContext from './context/feedbackContext'
+import Card from './Card'
+import React, {useState, useContext, useEffect } from 'react'
+import Button from './Button'
 import RatingSelect from './RatingSelect'
 
 function Feedbackform() {
-
+   
+    const {feedEdit, upDatefeed, addFeed } = useContext(feedbackContext);
     const [text, setfeedForm] = useState('')
     const [btnDisabled, setbtnDisabled] = useState(true)
     const [msg, setmsg] = useState('')
     const [rating, setRating] = useState(5)
 
-    const {addFeed, feedEdit, upDatefeed} = useContext(feedbackContext)
+  
 
     useEffect(() =>{
       if(feedEdit.edit === true) {
@@ -70,12 +71,13 @@ function Feedbackform() {
     <Card>
         <form onSubmit={handleSubmit}>
             <h2>How would you like to get this service</h2>
-            <RatingSelect select= {(rating) => setRating( rating)} />
+            <RatingSelect select={setRating} selected={rating} />
             <div className='input-group'>
                 <input
                 onChange={handleText}
                 value = {text} 
-                 type="text" placeholder='Write a review' />
+                type="text" 
+                placeholder='Write a review' />
             <Button type='Submit' isDisabled={btnDisabled}>Send</Button>
             </div>
             {msg && <div className='msg'>{msg}</div>}

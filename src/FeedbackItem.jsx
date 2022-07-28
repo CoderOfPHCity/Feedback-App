@@ -4,7 +4,7 @@ import Card from './components/Card'
 import {useContext} from 'react'
 import feedbackContext from './components/context/feedbackContext'
 
-function FeedbackItem({ item}) { 
+function FeedbackItem({item}) { 
   const {handleDel, editFeed} = useContext(feedbackContext)
   return (
     <Card>
