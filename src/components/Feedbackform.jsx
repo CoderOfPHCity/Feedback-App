@@ -1,5 +1,5 @@
 
-import feedbackContext from './context/feedbackContext'
+import FeedbackContext from './context/FeedbackContext'
 import Card from './Card'
 import React, {useState, useContext, useEffect } from 'react'
 import Button from './Button'
@@ -7,7 +7,7 @@ import RatingSelect from './RatingSelect'
 
 function Feedbackform() {
    
-    const {feedEdit, upDatefeed, addFeed } = useContext(feedbackContext);
+    const {feedEdit, upDatefeed, addFeed } = useContext(FeedbackContext);
     const [text, setfeedForm] = useState('')
     const [btnDisabled, setbtnDisabled] = useState(true)
     const [msg, setmsg] = useState('')

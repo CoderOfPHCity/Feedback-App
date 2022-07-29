@@ -6,13 +6,13 @@ import Feedbackform from './components/Feedbackform';
 import FeedbackStats from './components/FeedbackStats';
 import Aboutpage from './pages/Aboutpage';
 import AboutLink from './components/AboutLink';
-import { feedbackprovider } from './components/context/feedbackContext';
+import { Feedbackprovider } from './components/context/FeedbackContext';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 function App() {
   
   return (
-    <feedbackprovider>  
+    <Feedbackprovider>  
     <Router> 
     <Header />
      <div className="container">
@@ -32,7 +32,7 @@ function App() {
       <AboutLink />
     </div>
     </Router>
-   </feedbackprovider>
+   </Feedbackprovider>
   );
 }
 

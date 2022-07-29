@@ -1,10 +1,10 @@
 import React from 'react'
 import FeedbackItem from  './FeedbackItem'
 import { useContext } from 'react'
-import feedbackContext from './components/context/feedbackContext'
+import FeedbackContext from './components/context/FeedbackContext'
 
 function FeedbackList () {
-  const { feedback, isLoading } = useContext(feedbackContext)
+  const { feedback, isLoading } = useContext(FeedbackContext)
     
     if (!isLoading && (!feedback || feedback.length === 0)) {
       return <p>No Feedback Yet</p>
